@@ -1,7 +1,32 @@
 {% extends 'TPMailer/base.html' %}
 
+{% block head_content %}
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Welcome {{ user }}</a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'TPMailer:logout' %}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <iframe src="http://hextris.io/" height="90%" width="100%"></iframe>
+{% endblock  %}
+
+
 {% block main_content %}
 
-    <h4 class="text-success text-center">user <span class="text-muted">{{ user }}</span> is authenticated !</h4>
+    {% if not user.is_active %}
+        <div class="alert alert-warning">
+            <strong>Warninig ! </strong> You should activate your account
+        </div>
+        <div class="well well-lg">
+            in order to activate your account an email containing activation url is sent to your email <br>
+            {{ email }}
+        </div>
+{% endif %}
 
 {% endblock  %}

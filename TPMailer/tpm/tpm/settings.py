@@ -29,10 +29,9 @@ ALLOWED_HOSTS = []
 
 #EMAILNG CONFIGURATION [ OPTIONAL ]
 EMAIL_HOST = 'smtp.mailtrap.io'
-EMAIL_HOST_USER = 'a076e15aa8a83c'
-EMAIL_HOST_PASSWORD = '7565eaef8dcf9d'
+EMAIL_HOST_USER = '240b23ba2ff67c'
+EMAIL_HOST_PASSWORD = '540ec100920b72'
 EMAIL_PORT = '2525'
-
 
 # Application definition
 
@@ -57,12 +56,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'tpm.urls'
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['./TPMailer/templates/TPMailer/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,6 +74,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'tpm.wsgi.application'
 
+#TEMPLATE_CONTEXT_PROCESSORS = 'django.contrib.auth.context_processors.auth'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
@@ -127,9 +125,13 @@ USE_L10N = True
 USE_TZ = True
 
 
+
+ROOT_URLCONF = 'tpm.urls'
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -137,8 +139,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # https://docs.djangoproject.com/en/1.11/ref/settings/#login-redirect-url
 # Success Authentication redirect to [ OPTIONAL ]
-LOGIN_REDIRECT_URL = 'TPMailer:welcome'
+LOGIN_REDIRECT_URL = '/app/welcome'
+LOGOUT_REDIRECT_URL = '/app/'
 
+LOGIN_URL = '/app/accounts/login'
 
 # Using costum model to authenticate [ OPTIONAL ]
 AUTH_USER_MODEL = 'TPMailer.User'

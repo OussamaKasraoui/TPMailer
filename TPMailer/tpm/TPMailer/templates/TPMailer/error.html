@@ -1,11 +1,12 @@
 {% extends 'TPMailer/base.html' %}
 
 {% block main_content%}
-<h2>either email {{ message_ml }} is already exists</h2>
 
-<hr>
-
-<h2>OR user {{ message_us }} is already exists</h2>
-
+    <div class="alert alert-warning">
+            <strong>Warning ! </strong> {{ error_message }}
+    </div>
+    <div class="well well-lg">
+            {{ error_corp }}
+    </div>
 
 {% endblock %}

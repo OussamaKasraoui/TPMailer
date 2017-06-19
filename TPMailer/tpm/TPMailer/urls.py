@@ -1,32 +1,22 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
+from django.contrib.auth import views as auth_view
 from . import views
 
 urlpatterns = [
-    #/app/index
-    url(r'^$', views.index, name='index'),
+    # /app/index
+    url(r'^$', views.registre, name='registre'),
 
-    #/app/signup
-    url(r'^signup', views.signup, name='signup'),
+    # /app/accounts/*
+    url(r'^accounts/', include('django.contrib.auth.urls', namespace='TPMailer')),
+    #url(r'^accounts/login', views.login, name='login'),
 
-    #/app/signin
-    url(r'^signin', views.signin, name='signin'),
+    # /app/welcome
+    url(r'^welcome$', views.welcome, name='index'),
 
-    #/app/signin/welcome
-    url(r'^signin/welcome$', views.welcome, name='welcome'),
+    # /app/accounts/activate/{activation code}
+    url(r'^accounts/activate/(?P<activation_mail_txt>[A-Z0-9a-z]{32})$', views.activate, name='activate'),
+    url(r'^accounts/activate', views.activate, name='activate'),
 
-    #/app/signin/welcome
-    url(r'^signin/failed$', views.failed, name='signin failed'),
-
-    #/app/admin
-    url(r'^admin', views.admin, name='admin panel'),
-
-    #/app/new_user
-    url(r'^new_user$', views.create_user, name='create user'),
-
-    #/app/new_user/activate_{activation code}
-    url(r'^new_user/activate_(?P<activation_mail_txt>[A-Z0-9a-z]+)$', views.activate, name='Activate account'),
-
-
-    #/app/test
+    # /app/test
     url(r'^test$', views.test, name='test'),
 ]

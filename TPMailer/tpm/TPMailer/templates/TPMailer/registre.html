@@ -1,23 +1,18 @@
 {% extends 'TPMailer/base.html' %}
-
-{# Load the tag library #}
-{% load bootstrap3 %}
-
-{# Load CSS and JavaScript #}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
 {% load staticfiles %}
 
-{# Display django.contrib.messages as Bootstrap alerts #}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
 {% bootstrap_messages %}
 
 {% block main_content %}
     <div class="text-center">
         <h3>Welcome to 8ball app</h3>
-        <p>common <b>join us</b> or <a href="/app/signin">login</a></p>
+        <p>common <b>join us</b> or <a href="{% url 'TPMailer:login' %}">login</a></p>
     </div>
 
-    <form class="form-horizontal" action="/app/new_user" method="POST">
+    <form class="form-horizontal" action="{% url 'registre' %}" method="POST">
         {% csrf_token %}
 
         {% if method != 'POST' %}
@@ -27,9 +22,11 @@
             {% bootstrap_form form layout='horizontal' %}
             <div>
                 <span class="col-xs-12 col-sm-12 col-md-3 col-lg-3"></span>
-                <span class="col-xs-12 col-sm-12 col-md-9 col-lg-9 alert alert-danger text-center">
+                <span class="col-xs-12 col-sm-12 col-md-9 col-lg-9 alert alert-danger">
                     <ul>
-                        {{ error }}
+                        {% for er in error%}
+                        <li>{{ er }}</li>
+                        {% endfor%}
                     </ul>
                 </span>
             </div>
@@ -39,7 +36,7 @@
         <div class="form-group">
             <span class="col-xs-12 col-sm-12 col-md-3 col-lg-3"></span>
             <span class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
-                <button type="submit" name="submit" class="btn btn-block btn-primary submit" onsubmit="return is_match()">Submit</button>
+                <button type="submit" name="submit" class="btn btn-block btn-primary submit">Submit</button>
             </span>
         </div>
     </form>

@@ -1,0 +1,37 @@
+{% extends 'TPMailer/base.html' %}
+
+
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+
+
+{% block main_content %}
+
+    {% if cntx %}
+        <div class="alert alert-{{cntx_type}}">
+            <strong>{{cntx_type}} : </strong> {{cntx_msg}}
+        </div>
+    {% else %}
+        <center><h3>Welcome to login panel</h3></center>
+    {% endif %}
+
+        <div class="text-center">
+            <p>common <a href="/app/">join us</a> or <b>login</b></p>
+        </div>
+
+        <form class="form-horizontal" action="{% url 'TPMailer:login' %}" method="POST">
+            {% csrf_token %}
+
+            {% bootstrap_form form layout='horizontal' %}
+
+            <br>
+            <div class="form-group">
+                <span class="col-xs-12 col-sm-12 col-md-3 col-lg-3"></span>
+                <span class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+                    <button type="submit" name="submit" class="btn btn-block btn-primary submit">Submit</button>
+                </span>
+            </div>
+        </form>
+{% endblock %}

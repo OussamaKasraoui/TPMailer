@@ -4,17 +4,22 @@
 		<title>{{ page_title }} </title>
 		<link rel="stylesheet" href="{% static 'TPMailer/bootstrap/css/bootstrap.min.css'%}">
         <script src="{% static 'TPMailer/script.js' %}"></script>
-		<script src="{% static 'TPMailer/bootstrap/js/bootstrap.min.js' %}"></script>
+		<!-- -->
+        <script src="{% static 'TPMailer/bootstrap/js/bootstrap.min.js' %}"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="{% static 'TPMailer/style.css' %}">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'TPMailer/style.css' %}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8" >
 		<meta author="Oussama Kasraoui" >
 	</head>
 
     <body>
+        {% block head_content %}
+
+        {% endblock%}
         <div class="parent">
             <div class="child">
                 {% block main_content %}

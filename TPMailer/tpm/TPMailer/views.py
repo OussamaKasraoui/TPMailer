@@ -85,12 +85,22 @@ def registre(request):
                     fail_silently=False                                             # tell if something goes wrong
                     )
 
-                ret = redirect(settings.LOGIN_URL)
+                ret = HttpResponse(loader.get_template('TPMailer/info.html').render({'alert_type': 'info',
+                                                                                     'alert_head': 'Attention ',
+                                                                                     'alert_body': '{0}\'s account is created, but ...'.format(username),
+                                                                                     'alert_corp': 'An email with a Linkt of activation is sent to \'{0}\', '
+                                                                                                   'check it and activate your account please to be able to LOGIN'.format(email),
+                                                                                     'redirect_to': settings.LOGIN_URL,
+                                                                                     'redirect_text': 'Login page'
+                                                                                     }))
             else:
                 ret = HttpResponse(loader.get_template('TPMailer/info.html').render({'alert_type': 'danger',
                                                                                      'alert_head': 'Caution',
                                                                                      'alert_body': 'Invalid Email or username',
-                                                                                     'alert_corp': 'Either username or email you supplied is already taken, choose another one please '}))
+                                                                                     'alert_corp': 'Either username or email you supplied is already taken, choose another one please ',
+                                                                                     'redirect_to': '/app/',
+                                                                                     'redirect_text': 'Registre page'
+                                                                                     }))
         else:
             #implement form with recent submit values
             ret = HttpResponse(loader.get_template('TPMailer/registre.html').render({
@@ -134,28 +144,34 @@ def activate(request, activation_mail_txt=None):
                 user.last_login = timezone.now()
                 user.save()
 
-                #b9iit hna :
-                #           - Redirect to info.html
-                #           - redirect to login.html
-                ret = HttpResponse(loader.get_template('TPMailer/registration/login.html').render({'form': forms.LoginForm,
-                                                                                                   'cntx': True,
-                                                                                                   'cntx_type': 'success',
-                                                                                                   'cntx_msg': '{0}\'s account is activated'.format(user.username)}))
+                ret = HttpResponse(loader.get_template('TPMailer/info.html').render({'alert_type': 'success',
+                                                                                     'alert_head': 'Success',
+                                                                                     'alert_body': 'Activation Succeed',
+                                                                                     'alert_corp': 'Congratulations, {0}\'s account is activated'.format(user.username),
+                                                                                     'redirect_to': settings.LOGIN_URL,
+                                                                                     'redirect_text': 'Login page'}))
+
             else:
                 ret = HttpResponse(loader.get_template('TPMailer/info.html').render({'alert_type': 'warning',
                                                                                      'alert_head': 'Warning',
                                                                                      'alert_body': 'Token used',
-                                                                                     'alert_corp': 'Token is already activated'}))
+                                                                                     'alert_corp': 'Token is already activated',
+                                                                                     'redirect_to': settings.LOGIN_URL,
+                                                                                     'redirect_text': 'Login page'}))
         else:
             ret = HttpResponse(loader.get_template('TPMailer/info.html').render({'alert_type': 'danger',
                                                                                  'alert_head': 'Danger',
                                                                                  'alert_body': 'Bad Token',
-                                                                                 'alert_corp': '{0} is <b>NOT</b> a valid Token'.format(activation_mail_txt)}))
+                                                                                 'alert_corp': '" {0} " is NOT a valid Token'.format(activation_mail_txt),
+                                                                                 'redirect_to': '/app/',
+                                                                                 'redirect_text': 'Home pge'}))
     else:
         ret = HttpResponse(loader.get_template('TPMailer/info.html').render({'alert_type': 'warning',
                                                                              'alert_head': 'Warning',
                                                                              'alert_body': 'Bad Request',
-                                                                             'alert_corp': 'The current request is {0}, it is recommended to be GET'.format(request.method)}))
+                                                                             'alert_corp': 'The current request is {0}, it is recommended to be GET'.format(request.method),
+                                                                             'redirect_to': '/app/',
+                                                                             'redirect_text': 'Home page'}))
     return ret
 
 # check if Accout Activaton token is existe

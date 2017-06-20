@@ -87,8 +87,10 @@ def registre(request):
 
                 ret = redirect(settings.LOGIN_URL)
             else:
-                ret = HttpResponse(loader.get_template('TPMailer/error.html').render({'error_message': 'registration failed',
-                                                                                      'error_corp': 'either the Email or Username are already used'}))
+                ret = HttpResponse(loader.get_template('TPMailer/info.html').render({'alert_type': 'danger',
+                                                                                     'alert_head': 'Caution',
+                                                                                     'alert_body': 'Invalid Email or username',
+                                                                                     'alert_corp': 'Either username or email you supplied is already taken, choose another one please '}))
         else:
             #implement form with recent submit values
             ret = HttpResponse(loader.get_template('TPMailer/registre.html').render({
@@ -131,19 +133,29 @@ def activate(request, activation_mail_txt=None):
                 user.is_active = True
                 user.last_login = timezone.now()
                 user.save()
+
+                #b9iit hna :
+                #           - Redirect to info.html
+                #           - redirect to login.html
                 ret = HttpResponse(loader.get_template('TPMailer/registration/login.html').render({'form': forms.LoginForm,
                                                                                                    'cntx': True,
                                                                                                    'cntx_type': 'success',
                                                                                                    'cntx_msg': '{0}\'s account is activated'.format(user.username)}))
             else:
-                ret = HttpResponse(loader.get_template('TPMailer/error.html').render({'error_message': 'Invalid request',
-                                                                                           'error_corp': 'account is already activated'}))
+                ret = HttpResponse(loader.get_template('TPMailer/info.html').render({'alert_type': 'warning',
+                                                                                     'alert_head': 'Warning',
+                                                                                     'alert_body': 'Token used',
+                                                                                     'alert_corp': 'Token is already activated'}))
         else:
-            ret = HttpResponse(loader.get_template('TPMailer/error.html').render({'error_message': 'invalid token',
-                                                                                  'error_corp': 'the token [ {0} ] wsn\'t found ! '.format(activation_mail_txt)}))
+            ret = HttpResponse(loader.get_template('TPMailer/info.html').render({'alert_type': 'danger',
+                                                                                 'alert_head': 'Danger',
+                                                                                 'alert_body': 'Bad Token',
+                                                                                 'alert_corp': '{0} is <b>NOT</b> a valid Token'.format(activation_mail_txt)}))
     else:
-        ret = HttpResponse(loader.get_template('TPMailer/error.html').render({'error_message': 'Invalid reequest',
-                                                                               'error_corp': 'the actual request is POST, it must be GET '}))
+        ret = HttpResponse(loader.get_template('TPMailer/info.html').render({'alert_type': 'warning',
+                                                                             'alert_head': 'Warning',
+                                                                             'alert_body': 'Bad Request',
+                                                                             'alert_corp': 'The current request is {0}, it is recommended to be GET'.format(request.method)}))
     return ret
 
 # check if Accout Activaton token is existe
@@ -156,61 +168,3 @@ def test(request):
         return HttpResponse('yse is authenticated : {0}'.format(request.user))
     else:
         return HttpResponse('No is NOT authenticated : {0}'.format(request.user))
-
-"""
-# login view
-def login(request, user='to login panel'):
-
-    if request.user.is_authenticated:
-        
-        if request.method == "POST":
-
-            username = request.POST.get('email_field')
-            password = request.POST.get('password_field')
-
-
-            usr = authenticate(request, username=username, password=password)
-
-
-            if usr != None:
-                login(request, template='' )
-                ret = HttpResponse(loader.get_template('TPMailer/welcome.html').render({'user': username}, request))
-            else:
-                ret = HttpResponse(loader.get_template('TPMailer/failed.html').render({'user': username}, request))
-        else:
-            template = loader.get_template('TPMailer/signin.html')
-            context = {'user': user}
-            ret = HttpResponse(template.render(context, request))
-
-    return ret
-
-
-# if login failed
-def failed(request):
-    return HttpResponse(loader.get_template('TPMailer/failed.html').render({}, request))
-
-# account activating function
-def activate(request, activation_mail_txt):
-    if(len(activation_mail_txt) is 32):
-        code = get_object_or_404(models.Confirmation, msg_txt = activation_mail_txt)
-        if code.ischecked is False :
-            code.ischecked = True
-            #return
-        else:
-            context = 'email is already activated'
-            #return
-
-    else:
-        print('world')
-    return HttpResponse('activation code is {0}'.format(activation_mail_txt))
-
-#
-def admin(request):
-    template = loader.get_template('TPMailer/admin.html')
-    return HttpResponse(template.render({}, request))
-
-
-def test(request):
-    users = models.User.objects.values_list('username')
-    return HttpResponse(any(usr[0] == 'alex.popo' for usr in users))
-"""

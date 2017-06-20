@@ -15,8 +15,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tpm/TPMailer/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="11" />
+            <state relative-caret-position="204">
+              <caret line="15" column="27" lean-forward="true" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -35,8 +35,8 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tpm/TPMailer/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="28" lean-forward="false" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+            <state relative-caret-position="153">
+              <caret line="9" column="82" lean-forward="false" selection-start-line="9" selection-start-column="82" selection-end-line="9" selection-end-column="82" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -47,21 +47,26 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tpm/TPMailer/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="134" column="99" lean-forward="false" selection-start-line="134" selection-start-column="99" selection-end-line="134" selection-end-column="99" />
+            <state relative-caret-position="390">
+              <caret line="138" column="52" lean-forward="false" selection-start-line="138" selection-start-column="52" selection-end-line="138" selection-end-column="52" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
-                <element signature="e#745#4502#0" expanded="false" />
-                <element signature="e#4576#4661#0" expanded="false" />
-                <element signature="e#4727#4806#0" expanded="false" />
-                <element signature="e#4870#4975#0" expanded="false" />
-                <element signature="e#7006#7095#0" expanded="false" />
-                <element signature="e#7121#7325#0" expanded="false" />
-                <element signature="e#7327#9094#1" expanded="false" />
-                <marker date="1497930437806" expanded="false" signature="8232:8321" ph="..." />
-                <marker date="1497930437806" expanded="false" signature="8396:8809" ph="..." />
-                <marker date="1497930437806" expanded="false" signature="8832:8944" ph="..." />
+                <element signature="e#4833#4918#0" expanded="false" />
+                <element signature="e#4984#5063#0" expanded="false" />
+                <element signature="e#5127#5232#0" expanded="false" />
+                <element signature="e#8028#8117#0" expanded="false" />
+                <element signature="e#8143#8347#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tpm/TPMailer/templates/TPMailer/test.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -89,8 +94,18 @@
       <file leaf-file-name="welcome.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tpm/TPMailer/templates/TPMailer/welcome.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
+            <state relative-caret-position="323">
               <caret line="19" column="24" lean-forward="false" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="info.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tpm/TPMailer/templates/TPMailer/info.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="20" lean-forward="false" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -108,7 +123,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>confirmation</find>
       <find>Confirmatio</find>
       <find>Confirmation</find>
       <find>email</find>
@@ -138,6 +152,7 @@
       <find>backends</find>
       <find>login</find>
       <find>mail</find>
+      <find>info.html</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -164,13 +179,14 @@
         <option value="$PROJECT_DIR$/tpm/TPMailer/models.py" />
         <option value="$PROJECT_DIR$/tpm/TPMailer/forms.py" />
         <option value="$PROJECT_DIR$/tpm/tpm/settings.py" />
-        <option value="$PROJECT_DIR$/tpm/TPMailer/urls.py" />
         <option value="$PROJECT_DIR$/tpm/TPMailer/templates/TPMailer/registration/login.html" />
         <option value="$PROJECT_DIR$/tpm/TPMailer/templates/TPMailer/error.html" />
         <option value="$PROJECT_DIR$/tpm/TPMailer/static/TPMailer/style.css" />
         <option value="$PROJECT_DIR$/tpm/TPMailer/templates/TPMailer/welcome.html" />
         <option value="$PROJECT_DIR$/tpm/TPMailer/templates/TPMailer/base.html" />
         <option value="$PROJECT_DIR$/tpm/TPMailer/templates/TPMailer/registre.html" />
+        <option value="$PROJECT_DIR$/tpm/TPMailer/templates/TPMailer/info.html" />
+        <option value="$PROJECT_DIR$/tpm/TPMailer/urls.py" />
         <option value="$PROJECT_DIR$/tpm/TPMailer/views.py" />
       </list>
     </option>
@@ -342,6 +358,62 @@
               <option name="myItemId" value="TPMailer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tpm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TPMailer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TPMailer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TPMailer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TPMailer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tpm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TPMailer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TPMailer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="registration" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TPMailer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TPMailer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -490,14 +562,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tpm/TPMailer/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="33" column="49" lean-forward="true" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tpm/tpm/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1377">
@@ -535,16 +599,11 @@
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
-            <element signature="e#745#4502#0" expanded="false" />
-            <element signature="e#4576#4661#0" expanded="false" />
-            <element signature="e#4727#4806#0" expanded="false" />
-            <element signature="e#4870#4975#0" expanded="false" />
-            <element signature="e#7006#7095#0" expanded="false" />
-            <element signature="e#7121#7325#0" expanded="false" />
-            <element signature="e#7327#9094#1" expanded="false" />
-            <marker date="1497930437806" expanded="false" signature="8232:8321" ph="..." />
-            <marker date="1497930437806" expanded="false" signature="8396:8809" ph="..." />
-            <marker date="1497930437806" expanded="false" signature="8832:8944" ph="..." />
+            <element signature="e#4833#4918#0" expanded="false" />
+            <element signature="e#4984#5063#0" expanded="false" />
+            <element signature="e#5127#5232#0" expanded="false" />
+            <element signature="e#8028#8117#0" expanded="false" />
+            <element signature="e#8143#8347#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -565,16 +624,11 @@
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
-            <element signature="e#745#4502#0" expanded="false" />
-            <element signature="e#4576#4661#0" expanded="false" />
-            <element signature="e#4727#4806#0" expanded="false" />
-            <element signature="e#4870#4975#0" expanded="false" />
-            <element signature="e#7006#7095#0" expanded="false" />
-            <element signature="e#7121#7325#0" expanded="false" />
-            <element signature="e#7327#9094#1" expanded="false" />
-            <marker date="1497930437806" expanded="false" signature="8232:8321" ph="..." />
-            <marker date="1497930437806" expanded="false" signature="8396:8809" ph="..." />
-            <marker date="1497930437806" expanded="false" signature="8832:8944" ph="..." />
+            <element signature="e#4833#4918#0" expanded="false" />
+            <element signature="e#4984#5063#0" expanded="false" />
+            <element signature="e#5127#5232#0" expanded="false" />
+            <element signature="e#8028#8117#0" expanded="false" />
+            <element signature="e#8143#8347#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -595,16 +649,11 @@
           <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
-            <element signature="e#745#4502#0" expanded="false" />
-            <element signature="e#4576#4661#0" expanded="false" />
-            <element signature="e#4727#4806#0" expanded="false" />
-            <element signature="e#4870#4975#0" expanded="false" />
-            <element signature="e#7006#7095#0" expanded="false" />
-            <element signature="e#7121#7325#0" expanded="false" />
-            <element signature="e#7327#9094#1" expanded="false" />
-            <marker date="1497930437806" expanded="false" signature="8232:8321" ph="..." />
-            <marker date="1497930437806" expanded="false" signature="8396:8809" ph="..." />
-            <marker date="1497930437806" expanded="false" signature="8832:8944" ph="..." />
+            <element signature="e#4833#4918#0" expanded="false" />
+            <element signature="e#4984#5063#0" expanded="false" />
+            <element signature="e#5127#5232#0" expanded="false" />
+            <element signature="e#8028#8117#0" expanded="false" />
+            <element signature="e#8143#8347#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -683,13 +732,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tpm/TPMailer/templates/TPMailer/failed.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="15" lean-forward="false" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tpm/tpm/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -698,13 +740,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tpm/TPMailer/templates/TPMailer/signin.html" />
-    <entry file="file://$PROJECT_DIR$/tpm/TPMailer/templates/TPMailer/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tpm/TPMailer/templates/TPMailer/registration/password_changed.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -789,32 +824,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tpm/TPMailer/templates/TPMailer/error.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="26" lean-forward="false" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tpm/TPMailer/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="18" column="4" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tpm/TPMailer/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="28" lean-forward="false" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tpm/TPMailer/static/TPMailer/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -827,14 +836,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tpm/TPMailer/templates/TPMailer/registre.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="26" lean-forward="false" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -855,6 +856,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tpm/TPMailer/templates/TPMailer/info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="20" lean-forward="false" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tpm/TPMailer/templates/TPMailer/registration/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -863,9 +872,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tpm/TPMailer/templates/TPMailer/registre.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="26" lean-forward="false" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpm/TPMailer/templates/TPMailer/failed.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="15" lean-forward="false" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpm/TPMailer/templates/TPMailer/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpm/TPMailer/templates/TPMailer/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tpm/TPMailer/templates/TPMailer/welcome.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
+        <state relative-caret-position="323">
           <caret line="19" column="24" lean-forward="false" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
           <folding />
         </state>
@@ -873,28 +914,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tpm/TPMailer/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="11" />
+        <state relative-caret-position="204">
+          <caret line="15" column="27" lean-forward="true" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpm/TPMailer/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="18" column="4" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpm/TPMailer/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="82" lean-forward="false" selection-start-line="9" selection-start-column="82" selection-end-line="9" selection-end-column="82" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tpm/TPMailer/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="134" column="99" lean-forward="false" selection-start-line="134" selection-start-column="99" selection-end-line="134" selection-end-column="99" />
+        <state relative-caret-position="390">
+          <caret line="138" column="52" lean-forward="false" selection-start-line="138" selection-start-column="52" selection-end-line="138" selection-end-column="52" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
-            <element signature="e#745#4502#0" expanded="false" />
-            <element signature="e#4576#4661#0" expanded="false" />
-            <element signature="e#4727#4806#0" expanded="false" />
-            <element signature="e#4870#4975#0" expanded="false" />
-            <element signature="e#7006#7095#0" expanded="false" />
-            <element signature="e#7121#7325#0" expanded="false" />
-            <element signature="e#7327#9094#1" expanded="false" />
-            <marker date="1497930437806" expanded="false" signature="8232:8321" ph="..." />
-            <marker date="1497930437806" expanded="false" signature="8396:8809" ph="..." />
-            <marker date="1497930437806" expanded="false" signature="8832:8944" ph="..." />
+            <element signature="e#4833#4918#0" expanded="false" />
+            <element signature="e#4984#5063#0" expanded="false" />
+            <element signature="e#5127#5232#0" expanded="false" />
+            <element signature="e#8028#8117#0" expanded="false" />
+            <element signature="e#8143#8347#0" expanded="false" />
           </folding>
         </state>
       </provider>

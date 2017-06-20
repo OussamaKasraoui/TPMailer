@@ -8,7 +8,6 @@ urlpatterns = [
 
     # /app/accounts/*
     url(r'^accounts/', include('django.contrib.auth.urls', namespace='TPMailer')),
-    #url(r'^accounts/login', views.login, name='login'),
 
     # /app/welcome
     url(r'^welcome$', views.welcome, name='index'),

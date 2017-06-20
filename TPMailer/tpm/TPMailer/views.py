@@ -48,7 +48,7 @@ def registre(request):
         # if cridentials are valide
         if len(error) is 0:
             # is USERNAME and EMAIL are unique
-            if is_existe_username(username) is False and is_existe_email(email) is False:
+            if is_username(username) is False and is_email(email) is False:
                 # user & confirmation instance
                 con = models.Confirmation()
                 usr = models.User()
@@ -106,11 +106,11 @@ def registre(request):
     #Check if a username is already existes
 
 # Check if a username is already existes
-def is_existe_username(username):
+def is_username(username):
     return any(usr[0] == username for usr in models.User.objects.values_list('username'))
 
 # Check if an email is already existes
-def is_existe_email(email):
+def is_email(email):
     return any(eml[0] == email for eml in models.User.objects.values_list('email'))
 
 
@@ -121,36 +121,35 @@ def welcome(request):
 # Account activation view
 def activate(request, activation_mail_txt=None):
     if request.method == 'GET':
-        if activation_mail_txt is not None:
-            try:
-                mail_obj = models.Confirmation.objects.get(msg_txt=activation_mail_txt)
+        if activation_mail_txt is not None and is_token(activation_mail_txt):
+            mail_obj = models.Confirmation.objects.get(msg_txt=activation_mail_txt)
 
-                print('user is {0}'.format(mail_obj.user_id))
-
-                if mail_obj.is_checked is False:
-                    mail_obj.is_checked = True
-                    mail_obj.save()
-                    user = models.User.objects.get(username=mail_obj.user_id)
-                    user.is_active = True
-                    user.last_login = timezone.now()
-                    user.save()
-                    ret = HttpResponse(loader.get_template('TPMailer/login.html').render({'cntx': True,
-                                                                                           'cntx_type': 'success',
-                                                                                           'cntx_msg': '{0}\'s account is activated'.format(user.username)}))
-
-                else:
-                    ret = HttpResponse(loader.get_template('TPMailer/error.html').render({'error_message': 'Invalid request',
+            if mail_obj.is_checked is False:
+                mail_obj.is_checked = True
+                mail_obj.save()
+                user = models.User.objects.get(username=mail_obj.user_id)
+                user.is_active = True
+                user.last_login = timezone.now()
+                user.save()
+                ret = HttpResponse(loader.get_template('TPMailer/registration/login.html').render({'form': forms.LoginForm,
+                                                                                                   'cntx': True,
+                                                                                                   'cntx_type': 'success',
+                                                                                                   'cntx_msg': '{0}\'s account is activated'.format(user.username)}))
+            else:
+                ret = HttpResponse(loader.get_template('TPMailer/error.html').render({'error_message': 'Invalid request',
                                                                                            'error_corp': 'account is already activated'}))
-            except:
-                ret = HttpResponse(loader.get_template('TPMailer/error.html').render({'error_message': 'invalid token',
-                                                                                       'error_corp': 'the token [ {0} ] wsn\'t found ! '.format(activation_mail_txt)}))
         else:
-            ret = HttpResponse(loader.get_template('TPMailer/error.html').render({'error_message': 'token is messing',
-                                                                                   'error_corp': 'the activation token is not supplied at all '}))
+            ret = HttpResponse(loader.get_template('TPMailer/error.html').render({'error_message': 'invalid token',
+                                                                                  'error_corp': 'the token [ {0} ] wsn\'t found ! '.format(activation_mail_txt)}))
     else:
         ret = HttpResponse(loader.get_template('TPMailer/error.html').render({'error_message': 'Invalid reequest',
                                                                                'error_corp': 'the actual request is POST, it must be GET '}))
     return ret
+
+# check if Accout Activaton token is existe
+def is_token(token):
+    return any(tkn[0] == token for tkn in models.Confirmation.objects.values_list('msg_txt'))
+
 
 def test(request):
     if request.user.is_authenticated:

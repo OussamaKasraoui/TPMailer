@@ -33,3 +33,19 @@ html
   	padding: 20px;
   	overflow: auto;
 }
+
+.left_bar
+{
+    height: 100%;
+    background-color: #85BBCC;
+    border-radius : 8px 0px 0px 8px ;
+    color: #EDEDED;
+    font-size : 16px;
+}
+
+.main_bar
+{
+    height: 100%;
+    background-color: #E8E8E8;
+    border-radius : 0px 8px 8px 0px ;
+}

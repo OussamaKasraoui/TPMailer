@@ -6,11 +6,17 @@ urlpatterns = [
     # /app/index
     url(r'^$', views.registre, name='registre'),
 
-    # /app/accounts/*
-    url(r'^accounts/', include('django.contrib.auth.urls', namespace='TPMailer')),
-
     # /app/welcome
     url(r'^welcome$', views.welcome, name='index'),
+
+    # /app/admin/
+    url(r'^admin$', views.admin, name='admin'),
+
+    # /app/admin/home
+    url(r'^admin/dashboard', views.dashboard, name='dashboard'),
+
+    # /app/accounts/*
+    url(r'^accounts/', include('django.contrib.auth.urls', namespace='TPMailer')),
 
     # /app/accounts/activate/{activation code}
     url(r'^accounts/activate/(?P<activation_mail_txt>[A-Z0-9a-z]{32})$', views.activate, name='activate'),

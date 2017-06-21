@@ -5,14 +5,15 @@ from . import forms
 from django.conf import settings
 from django.http import HttpResponse
 from django.utils import timezone
+from django.shortcuts import redirect
 from django.template import loader
 from django.core.mail import send_mail
-from django.shortcuts import get_object_or_404, render, redirect
-from django.contrib.auth import  authenticate, login as auth_login, logout
+from django.contrib.auth import authenticate, login
 from django.utils.crypto import get_random_string
 from django.core.exceptions import ValidationError
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.password_validation import validate_password, password_validators_help_texts
 
 
@@ -125,7 +126,6 @@ def is_username(username):
 def is_email(email):
     return any(eml[0] == email for eml in models.User.objects.values_list('email'))
 
-
 @login_required     # Welcome view
 def welcome(request):
     return HttpResponse(loader.get_template('TPMailer/welcome.html').render({'user': request.user}, request))
@@ -177,6 +177,43 @@ def activate(request, activation_mail_txt=None):
 # check if Accout Activaton token is existe
 def is_token(token):
     return any(tkn[0] == token for tkn in models.Confirmation.objects.values_list('msg_txt'))
+
+# Admin view
+def admin(request):
+    if request.method != 'POST':
+        if request.user.is_authenticated:
+            if request.user.is_staff:
+                return HttpResponse(loader.get_template('TPMailer/dashboard.html'))
+            else:
+                return HttpResponse(loader.get_template('TPMailer/admin.html').render({'form': forms.LoginForm,
+                                                                                       'error': True,
+                                                                                       'error_msg': 'This panel is Admin\s only, if you are please login !'}, request))
+        else:
+            return HttpResponse(loader.get_template('TPMailer/admin.html').render({'form': forms.LoginForm,
+                                                                                   'error': False}, request))
+    else:
+        username = request.POST['username']
+        password = request.POST['password']
+
+        auth_admin = authenticate(request, username=username, password=password)
+
+        if auth_admin is not None:
+            if auth_admin.is_staff is True:
+                login(request, auth_admin)
+
+                return redirect('/app/admin/dashboard')
+            else:
+                return HttpResponse(loader.get_template('TPMailer/admin.html').render({'form': forms.LoginForm,
+                                                                                       'error': True,
+                                                                                       'error_msg': 'This panel is privat !'}, request))
+        else:
+            return HttpResponse(loader.get_template('TPMailer/admin.html').render({'form': forms.LoginForm,
+                                                                                   'error': True,
+                                                                                   'error_msg': 'either username or password are invalid'}, request))
+
+@staff_member_required
+def dashboard(request):
+    return HttpResponse(loader.get_template('TPMailer/dashboard.html').render({'admin': request.user}, request))
 
 
 def test(request):

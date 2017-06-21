@@ -1,0 +1,17 @@
+{% extends 'TPMailer/base.html' %}
+
+{% block main_content%}
+
+    <div class="alert alert-{{alert_type}}">
+            <strong>{{alert_head}} </strong> {{ alert_body }}
+    </div>
+    <div class="well well-lg">
+        <span>
+            {{ alert_corp }}
+        </span>
+        <span>
+            <a href="{{ redirect_to }}" class="btn btn-{{alert_head}} btn-lg" role="button">{{ redirect_text }}</a>
+        </span>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'TPMailer/base.html' %}
+
+<h1>welcome admin</h1>
+{% block head_content %}
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Welcome staff : {{ request.user }}</a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'TPMailer:logout' %}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block dashboard_content %}
+
+    <div class="container">
+        <span class="col-md-3 left_bar">
+            <div>
+                Last login : {{ request.user.last_login }}
+            </div>
+            <ul>
+
+            </ul>
+        </span>
+
+        <span class="col-md-9 main_bar">
+
+        </span>
+    </div>
+
+{% endblock %}

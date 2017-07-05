@@ -5,7 +5,7 @@ from django.contrib.auth.models import AbstractUser, UserManager
 # Create your models here.
 
 class Confirmation(models.Model):
-    msg_txt = models.CharField(max_length=32)
+    msg_txt = models.CharField(max_length=32, unique=True)
     gen_date = models.DateTimeField(default=timezone.now)
     is_checked = models.BooleanField(default=False)
     user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)

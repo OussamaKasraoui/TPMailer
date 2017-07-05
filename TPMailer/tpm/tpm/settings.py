@@ -35,15 +35,16 @@ EMAIL_PORT = '2525'
 
 # Application definition
 
+
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'TPMailer.apps.TpmailerConfig',
+    'TPMailer',
     'bootstrap3',
+    'django.contrib.auth',
 ]
 
 MIDDLEWARE = [
@@ -71,6 +72,17 @@ TEMPLATES = [
         },
     },
 ]
+
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'dajaxice.finders.DajaxiceFinder',
+)
+
+
+
+
 
 WSGI_APPLICATION = 'tpm.wsgi.application'
 
@@ -133,7 +145,7 @@ ROOT_URLCONF = 'tpm.urls'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'TPMailer'),)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
@@ -141,7 +153,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Success Authentication redirect to [ OPTIONAL ]
 LOGIN_REDIRECT_URL = '/app/welcome'
 LOGOUT_REDIRECT_URL = '/app/'
-
 LOGIN_URL = '/app/accounts/login'
 
 # Using costum model to authenticate [ OPTIONAL ]
@@ -220,3 +231,6 @@ BOOTSTRAP3 = {
         'inline': 'bootstrap3.renderers.InlineFieldRenderer',
     },
 }
+
+
+

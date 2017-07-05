@@ -1,19 +1,28 @@
-from django.conf.urls import url, include
-from django.contrib.auth import views as auth_view
 from . import views
+from django.conf import settings
+from django.conf.urls import url, include
 
 urlpatterns = [
-    # /app/index
+    #  /app/index
     url(r'^$', views.registre, name='registre'),
 
     # /app/welcome
     url(r'^welcome$', views.welcome, name='index'),
 
     # /app/admin/
-    url(r'^admin$', views.admin, name='admin'),
+    url(r'^admin', views.admin, name='admin'),
 
-    # /app/admin/home
+    # /app/admin/dashboard
     url(r'^admin/dashboard', views.dashboard, name='dashboard'),
+
+    # /app/admin/dashboard/confirmations
+    url(r'^admin/dashboard/confirmations', views.dash_confirmations, name='dash_confirmations'),
+
+    # /app/admin/dashboard/users
+    url(r'^admin/dashboard/users', views.dash_users, name='dash_users'),
+
+    # /app/admin/dashboard/users
+    url(r'^admin/dashboard/settings', views.dash_settings, name='dash_settings'),
 
     # /app/accounts/*
     url(r'^accounts/', include('django.contrib.auth.urls', namespace='TPMailer')),

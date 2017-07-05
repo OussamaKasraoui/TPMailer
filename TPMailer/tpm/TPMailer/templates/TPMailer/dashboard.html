@@ -1,11 +1,21 @@
 {% extends 'TPMailer/base.html' %}
 
-<h1>welcome admin</h1>
+{% load staticfiles%}
+
+{% load bootstrap3 %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+
+
 {% block head_content %}
-    <nav class="navbar navbar-default">
+
+    <!--  Header Part  -->
+    <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Welcome staff : {{ request.user }}</a>
+                <a class="navbar-brand" href="#">staff : {{ request.user }}</a>
             </div>
 
             <ul class="nav navbar-nav navbar-right">
@@ -16,20 +26,71 @@
 {% endblock %}
 
 {% block dashboard_content %}
+    <div class="container-fluid">
+        <!--  Menu Part  -->
+        <span class="col-md-3 btn-group-vertical left_bar">
 
-    <div class="container">
-        <span class="col-md-3 left_bar">
-            <div>
-                Last login : {{ request.user.last_login }}
-            </div>
-            <ul>
+            <ul class="list-group">
+                <li class="list-group-item" id="dash">Dashboard
+                    <span class="label label-warning pull-right">12</span>
+                </li>
+                <li class="list-group-item" id="dash_confs">Confirmation Queue
+                    <span class="label label-warning pull-right">12</span>
+                </li>
 
+                <li class="list-group-item" id="dash_users">Users List
+                    <span class="label label-warning pull-right">12</span>
+                </li>
+                <li class="list-group-item" id="dash_settings">Settings
+                    <span class="label label-warning pull-right">12</span>
+                </li>
             </ul>
         </span>
 
+        <!--  Content Part  -->
         <span class="col-md-9 main_bar">
 
+            <div id="ContentHeader" class="center-block col-md-12 well well-bg">
+                <span> Dashboard : {{ C_H_header }}</span>
+            </div>
+
+            <div id="ContentBody" class="center-block col-md-12 well well-bg">
+
+                {% if not T %}
+                <div class="row">
+                    <span>
+                        - Users recently registered
+                    </span>
+                    <span class="pull-right label label-warning">
+                        {{ UsersFeed }} 17
+                    </span>
+                </div>
+                <div class="row">
+                    <span>
+                        - Confirmations on hold
+                    </span>
+                    <span class="pull-right label label-warning">
+                        {{ ConfirmationsFeed }} 50
+                    </span>
+                </div>
+                {% else %}
+                <table>
+                    {% for el in C_H_body %}
+                    <tr><td>{{ el }}</td>
+                    {% endfor %}
+                </table>
+                {% endif %}
+
+            </div>
+
+            <div id="ContentFooter" class="center-block col-md-11">
+                <span class="col-md-6 text-left">
+                    <small>{{ C_H_footer }}</small>
+                </span>
+                <span class="col-md-6 text-right">
+                    <small>your location: / link / sublink / directory / document </small>
+                </span>
+            </div>
         </span>
     </div>
-
 {% endblock %}

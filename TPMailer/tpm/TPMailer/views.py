@@ -5,8 +5,8 @@ from . import forms
 from django.conf import settings
 from django.http import HttpResponse
 from django.utils import timezone
-from django.shortcuts import redirect
-from django.template import loader
+from django.shortcuts import redirect, render_to_response, render
+from django.template import loader, RequestContext
 from django.core.mail import send_mail
 from django.contrib.auth import authenticate, login
 from django.utils.crypto import get_random_string
@@ -174,7 +174,7 @@ def activate(request, activation_mail_txt=None):
                                                                              'redirect_text': 'Home page'}))
     return ret
 
-# check if Accout Activaton token is existe
+# check if Account Activation token is existe
 def is_token(token):
     return any(tkn[0] == token for tkn in models.Confirmation.objects.values_list('msg_txt'))
 
@@ -183,7 +183,7 @@ def admin(request):
     if request.method != 'POST':
         if request.user.is_authenticated:
             if request.user.is_staff:
-                return HttpResponse(loader.get_template('TPMailer/dashboard.html'))
+                return dashboard(request)
             else:
                 return HttpResponse(loader.get_template('TPMailer/admin.html').render({'form': forms.LoginForm,
                                                                                        'error': True,
@@ -198,9 +198,8 @@ def admin(request):
         auth_admin = authenticate(request, username=username, password=password)
 
         if auth_admin is not None:
-            if auth_admin.is_staff is True:
+            if auth_admin.is_staff:
                 login(request, auth_admin)
-
                 return redirect('/app/admin/dashboard')
             else:
                 return HttpResponse(loader.get_template('TPMailer/admin.html').render({'form': forms.LoginForm,
@@ -212,12 +211,47 @@ def admin(request):
                                                                                    'error_msg': 'either username or password are invalid'}, request))
 
 @staff_member_required
-def dashboard(request):
-    return HttpResponse(loader.get_template('TPMailer/dashboard.html').render({'admin': request.user}, request))
+def dashboard(request, ):
+    # RENDER THE QUEUE'S DATA
+    return HttpResponse(loader.get_template('TPMailer/dashboard.html').render({'C_H_header': 'main',
+                                                                               'C_H_body': {'Element 1',
+                                                                                            'Element 2',
+                                                                                            'Element 3',
+                                                                                            'Element 4',
+                                                                                            },
+                                                                               'C_H_footer': 'TPMailer 2017'}, request))
+
+@staff_member_required
+def dash_confirmations(request):
+    table_header = ['ID', 'USER', 'DATE', 'VALUE', 'STATUS']
+    confs = list(models.Confirmation.objects.extra(select={'Q': 'V'}).values('pk', 'user_id', 'gen_date', 'msg_txt', 'is_checked'))
+
+    return HttpResponse(loader.get_template('TPMailer/dashboard.html').render({'C_H_header': 'Confirmations Queue',
+                                                                               'C_H_body': {'table_header': table_header,
+                                                                                            'table_body': confs,
+                                                                                            },
+                                                                               'C_H_footer': 'TPMailer 2017'},
+                                                                              request))
+
+@staff_member_required
+def dash_users(request):
+    #USERS QUEUE TABLE
+    table_header = ['ID', 'First Name', 'Last Name', 'Username', 'Email', 'Status']
+    confs = list(models.User.objects.extra(select={'Q': 'V'}).values('pk',
+                                                                     'first_name',
+                                                                     'last_name',
+                                                                     'username',
+                                                                     'email',
+                                                                     'is_active'))
+    return render(request,'TPMailer/dashboard.html', {'view': True,
+                                                      'table_body': confs,
+                                                      'table_header': table_header})
+
+@staff_member_required
+def dash_settings(request):
+    #SETTINGS VIEW
+    return True
 
 
 def test(request):
-    if request.user.is_authenticated:
-        return HttpResponse('yse is authenticated : {0}'.format(request.user))
-    else:
-        return HttpResponse('No is NOT authenticated : {0}'.format(request.user))
+    return HttpResponse('hahoma L STATIC FILES : {0}'.format(settings.STATIC_FILES))

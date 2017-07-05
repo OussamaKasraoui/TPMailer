@@ -1,13 +1,7 @@
-html 
-{
-  	/*background: url(img/bg.jpg) no-repeat center center fixed; 
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;*/
-}
+/* BASE */
 
-.parent 
+
+.parent
 {
   	position: absolute;
   	background: #EDEDED;
@@ -19,7 +13,7 @@ html
   	overflow: auto;
 }
 
-.child 
+.child
 {
 	background-color: white;
 	border: 1px solid #D9D9D9;
@@ -36,11 +30,19 @@ html
 
 .left_bar
 {
+    padding: 0px;
+    margin: 0px;
     height: 100%;
-    background-color: #85BBCC;
+    background-color: #C22525;
     border-radius : 8px 0px 0px 8px ;
-    color: #EDEDED;
-    font-size : 16px;
+}
+
+.left_bar div
+{
+margin-top : 15px;
+margin-bottom: 15px;
+color: #EDE6E6;
+font-size : 16px;
 }
 
 .main_bar
@@ -48,4 +50,91 @@ html
     height: 100%;
     background-color: #E8E8E8;
     border-radius : 0px 8px 8px 0px ;
+}
+
+.parent
+{
+  	position: absolute;
+  	background: #EDEDED;
+  	height: 100%;
+  	width: 100%;
+  	margin: 0 auto;
+  	padding: 20px;
+  	resize: both;
+  	overflow: auto;
+}
+
+.child
+{
+	background-color: white;
+	border: 1px solid #D9D9D9;
+	border-radius: 10px;
+  	width: 90%;
+  	height: auto;
+  	transform: translate(-50%, -50%);
+ 	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	padding: 20px;
+  	overflow: auto;
+}
+
+.left_bar
+{
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+    background-color: #C22525;
+    border-radius : 8px 0px 0px 8px ;
+}
+
+.left_bar div
+{
+margin-top : 15px;
+margin-bottom: 15px;
+color: #EDE6E6;
+font-size : 16px;
+}
+
+.main_bar
+{
+    height: 100%;
+    background-color: #E8E8E8;
+    border-radius : 0px 8px 8px 0px ;
+}
+
+#ContentHeader
+{
+    height 40px;
+    margin-bottom: 10px;
+}
+
+#ContentHeader span
+{
+    font-size: 48px;
+    text-decoration: underline;
+}
+
+#ContentBody
+{
+    margin-top: 10px;
+    margin-bottom:10px;
+}
+
+#ContentBody span
+{
+    margin: 20;
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #2D2E2E;
+    text-decoration: circle;
+}
+
+#ContentFooter
+{
+    position: absolute;
+    bottom: 10px;
+}
+#ContentFooter span
+{
 }
